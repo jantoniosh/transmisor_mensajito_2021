@@ -1,0 +1,101 @@
+a:visited {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+#texto_1 {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_1 {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+}
+
+#texto_2 {
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_2 {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+
+#texto_3 {
+    position: absolute;
+    top: 190px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_3 {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+}
+
+#modificar_1 {
+    position: absolute;
+    top: 270px;
+    left: 20px;
+    font-size: 25px;
+}
+
+#imagen_1 {
+    position: absolute;
+    top: 270px;
+    left: 320px;
+    font-size: 25px;
+}
+
+input[type=text] {
+    font-family: mensajito_font;
+    background: transparent;
+    font-size: 25px;
+    width: 400px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.triangulo_abajo {
+    position: absolute;
+    top: 225px;
+    left: 430px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-top: 20px solid black;
+    border-right: 10px solid transparent; 
+}
+
+.triangulo_arriba {
+    position: absolute;
+    top: 80px;
+    left: 430px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-bottom: 20px solid black;
+    border-right: 10px solid transparent; 
+}

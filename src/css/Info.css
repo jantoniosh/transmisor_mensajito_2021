@@ -1,0 +1,53 @@
+#ip_eth0 {
+	position: absolute;
+	top: 70px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+#mac_eth0 {
+	position: absolute;
+	top: 100px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+#ip_wlan0 {
+	position: absolute;
+	top: 130px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+#mac_wlan0 {
+	position: absolute;
+	top: 160px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+#memoria {
+	position: absolute;
+	top: 190px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+#info_gen {
+	position: absolute;
+	top: 220px;
+	left: 20px;
+	width: 440px;
+	font-size: 20px;
+	line-height: 20px;
+}
