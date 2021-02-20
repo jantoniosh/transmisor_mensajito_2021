@@ -6,6 +6,11 @@
 body {
     cursor: none;
     margin: 0px;
+    font-family: mensajito_font;
+}
+
+option {
+    font-family: mensajito_font;
 }
 
 a:visited {
@@ -18,11 +23,6 @@ a:hover {
 
 a:active {
     text-decoration: none;
-}
-
-body {
-    font-family: mensajito_font;
-    /* cursor: none; */
 }
 
 .btn_circle {

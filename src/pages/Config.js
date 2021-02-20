@@ -3,7 +3,7 @@ import '../css/Config.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const Config = () => {
+const Config = ({ ip }) => {
     const [Datos, setDatos] = useState({
         "estacion": "mensajito",
         "ubicacion": "mensajito",
@@ -20,7 +20,7 @@ const Config = () => {
     useEffect(() => {
         const get_data = async () => {
             try {
-                const response = await axios.get('http://192.168.100.248:3000/config')
+                const response = await axios.get(`${ip}config`);
                 setDatos({
                     "estacion": response.data.nombre,
                     "ubicacion": response.data.ubicacion,
@@ -39,7 +39,7 @@ const Config = () => {
             }
         }
         get_data();
-    }, [load]);
+    }, [load, ip]);
 
 
     const [Pos, setPos] = useState("A");
@@ -97,8 +97,8 @@ const Config = () => {
         console.log("subiendo datos");
         const data_send = async () => {
             try {
-                
-                await axios.post('http://192.168.100.248:3000/config', Datos)
+
+                await axios.post(`${ip}config`, Datos)
                     .then(res => {
                         console.log("Datos Arriba");
                     });

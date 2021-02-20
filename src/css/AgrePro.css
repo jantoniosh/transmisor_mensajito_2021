@@ -1,0 +1,53 @@
+a:visited {
+    color: black;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+  
+  #texto_1 {
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      font-size: 40px;
+  }
+  
+  #inicio_1 {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 20px;
+  }
+  
+  #nombre_1 {
+      position: absolute;
+      top: 200px;
+      left: 20px;
+      font-size: 30px;
+  }
+  
+  #n_pro {
+      position: absolute;
+      top: 110px;
+      left: 20px;
+  }
+  
+  input[type=text] {
+      font-size: 30px;
+      width: 400px;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+  }
+  
+  input[type=text]:focus {
+      border: 3px solid #555;
+  }
+  

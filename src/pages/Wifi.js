@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../css/WiFi.css'
 import axios from 'axios'
 
-const Wifi = () => {
+const Wifi = ({ ip }) => {
     const [Datos, setDatos] = useState({
         "ssid": "",
         "password": ""
@@ -17,12 +17,12 @@ const Wifi = () => {
         setDatos({ ...Datos, "password": e.target.value });
     }
 
-    const connect_wifi= (e) => {
+    const connect_wifi = (e) => {
         console.log("subiendo datos");
         const data_send = async () => {
             try {
-                
-                await axios.post('http://192.168.100.248:3000/wifi', Datos)
+
+                await axios.post(`${ip}wifi`, Datos)
                     .then(res => {
                         console.log(res.data);
                     });
@@ -38,9 +38,9 @@ const Wifi = () => {
         <>
             <div className="menu"><Link to="/"><span>inicio</span></Link>/wifi</div>
             <label id="texto_1">SSID</label>
-            <input type="text" className="c_1" id="wifi" name="wifi" value={Datos.ssid} onChange={onChangeSSID}/>
+            <input type="text" className="c_1" id="wifi" name="wifi" value={Datos.ssid} onChange={onChangeSSID} />
             <label id="texto_2">Contraseña</label>
-            <input type="text" className="c_2" id="contrasena" name="contrasena" value={Datos.password} onChange={onChangePass}/>
+            <input type="text" className="c_2" id="contrasena" name="contrasena" value={Datos.password} onChange={onChangePass} />
             <div id="conectar_1" onClick={connect_wifi}>Conectar</div>
         </>
     )

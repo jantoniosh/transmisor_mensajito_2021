@@ -3,7 +3,7 @@ import '../css/Info.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const Info = () => {
+const Info = ({ ip }) => {
     const [Info, setInfo] = useState({
         "ip_eth0": "",
         "mac_eth0": "",
@@ -16,7 +16,7 @@ const Info = () => {
     useEffect(() => {
         const get_data = async () => {
             try {
-                const response = await axios.get('http://192.168.100.248:3000/info')
+                const response = await axios.get(`${ip}info`);
                 setInfo({
                     "ip_eth0": response.data.ip_eth0,
                     "mac_eth0": response.data.mac_eth0,
@@ -32,7 +32,7 @@ const Info = () => {
             }
         }
         get_data();
-    }, [load]);
+    }, [load, ip]);
 
     return (
         <>

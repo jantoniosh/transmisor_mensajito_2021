@@ -1,18 +1,41 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import '../css/AgrePro.css'
+import axios from 'axios'
 
-const AgregarProg = () => {
-    const [Nombre, setNombre] = useState("")
+const AgregarProg = ({ ip }) => {
+    const [Datos, setDatos] = useState({
+        "nombre": ""
+    });
 
     const onChangeNombre = (e) => {
-        setNombre(e.target.value);
+        setDatos({ ...Datos, "nombre": e.target.value });
+    }
+
+    const agrePro = (e) => {
+        console.log("subiendo programa");
+        const data_send = async () => {
+            try {
+
+                await axios.post(`${ip}programa`, Datos)
+                    .then(res => {
+                        console.log("Datos Arriba");
+                    });
+                console.log("ok");
+            }
+            catch {
+                console.log("error");
+            }
+        }
+        data_send();
     }
 
     return (
         <>
-            <div id="inicio_1"><a href="index.html">inicio</a>/<a href="selec_pro.html">programa</a>/agregar</div>
+            <div className="menu"><Link to="/"><span>inicio</span></Link>/<Link to="programas"><span>programa</span></Link>/agregar</div>
             <label id="texto_1">Nombre del Programa</label>
-            <input type="text" id="n_pro" name="n_pro" value={Nombre} onChange={onChangeNombre}/>
-            <div id="agregar_1">agregar</div>
+            <input type="text" id="n_pro" name="n_pro" value={Datos.nombre} onChange={onChangeNombre} />
+            <div id="nombre_1" onClick={agrePro}>agregar</div>
         </>
     )
 }
