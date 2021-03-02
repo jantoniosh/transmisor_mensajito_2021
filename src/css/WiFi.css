@@ -10,7 +10,7 @@ a:active {
     text-decoration: none;
 }
 
-#texto_1 {
+#texto_1_wifi {
     position: absolute;
     top: 50px;
     left: 20px;
@@ -23,7 +23,7 @@ a:active {
     left: 20px;
 }
 
-#texto_2 {
+#texto_2_wifi {
     position: absolute;
     top: 120px;
     left: 20px;

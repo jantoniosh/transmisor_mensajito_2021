@@ -7,7 +7,7 @@ const Inicio = () => {
     return (
         <>
             <img src={Fondo} alt={Fondo} />
-            <Link to="/programas"><div id="btn_inicio" className="btn_circle btn_black">inicio</div></Link>
+            <Link to="/main"><div id="btn_inicio" className="btn_circle btn_black">inicio</div></Link>
         </>
     )
 }

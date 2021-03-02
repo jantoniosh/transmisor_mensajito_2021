@@ -116,10 +116,10 @@ const Config = ({ ip }) => {
             <div className="menu"><Link to="/"><span>inicio</span></Link>/configuración</div>
             {Pos === "A" &&
                 <>
-                    <label id="texto_1">Nombre de la estación</label>
-                    <input type="text" className="c_1" id="estacion" name="estacion" value={Datos.estacion} onChange={onChangeEstacion} />
+                    <label id="texto_1_conf">Nombre de la estación</label>
+                    <input type="text" className="c_1" name="estacion" value={Datos.estacion} onChange={onChangeEstacion} />
                     <label id="texto_2">Ubicación</label>
-                    <input type="text" className="c_2" id="ubicacion" name="ubicacion" value={Datos.ubicacion} onChange={onChangeUbicacion} />
+                    <input type="text" className="c_2" name="ubicacion" value={Datos.ubicacion} onChange={onChangeUbicacion} />
                     <label id="texto_3">Descripción</label>
                     <input type="text" className="c_3" id="descripcion" name="descripcion" value={Datos.descripcion} onChange={onChangeDescripcion} />
                     <div className="triangulo_abajo" onClick={camb_pos_abajo}></div>
@@ -127,7 +127,7 @@ const Config = ({ ip }) => {
             }
             {Pos === "B" &&
                 <>
-                    <label id="texto_1">Facebook</label>
+                    <label id="texto_1_conf">Facebook</label>
                     <input type="text" className="c_1" id="facebook" name="facebook" value={Datos.facebook} onChange={onChangeFacebook} />
                     <label id="texto_2">Instagram</label>
                     <input type="text" className="c_2" id="instagram" name="instagram" value={Datos.instagram} onChange={onChangeInstagram} />
@@ -139,7 +139,7 @@ const Config = ({ ip }) => {
             }
             {Pos === "C" &&
                 <>
-                    <label id="texto_1">Página Web</label>
+                    <label id="texto_1_conf">Página Web</label>
                     <input type="text" className="c_1" id="web" name="web" value={Datos.web} onChange={onChangeWeb} />
                     <label id="texto_2">Tags</label>
                     <input type="text" className="c_2" id="tags" name="tags" value={Datos.tags} onChange={onChangeTags} />

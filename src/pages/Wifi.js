@@ -37,9 +37,9 @@ const Wifi = ({ ip }) => {
     return (
         <>
             <div className="menu"><Link to="/"><span>inicio</span></Link>/wifi</div>
-            <label id="texto_1">SSID</label>
-            <input type="text" className="c_1" id="wifi" name="wifi" value={Datos.ssid} onChange={onChangeSSID} />
-            <label id="texto_2">Contraseña</label>
+            <label id="texto_1_wifi">SSID</label>
+            <input type="text" className="c_1" name="wifi" value={Datos.ssid} onChange={onChangeSSID} />
+            <label id="texto_2_wifi">Contraseña</label>
             <input type="text" className="c_2" id="contrasena" name="contrasena" value={Datos.password} onChange={onChangePass} />
             <div id="conectar_1" onClick={connect_wifi}>Conectar</div>
         </>

@@ -32,7 +32,7 @@ const AgregarProg = ({ ip }) => {
 
     return (
         <>
-            <div className="menu"><Link to="/"><span>inicio</span></Link>/<Link to="programas"><span>programa</span></Link>/agregar</div>
+            <div className="menu"><Link to="/"><span>inicio</span></Link>/<Link to="/main"><span>programa</span></Link>/agregar</div>
             <label id="texto_1">Nombre del Programa</label>
             <input type="text" id="n_pro" name="n_pro" value={Datos.nombre} onChange={onChangeNombre} />
             <div id="nombre_1" onClick={agrePro}>agregar</div>

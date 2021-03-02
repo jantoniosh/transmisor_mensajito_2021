@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import socketIOClient from "socket.io-client";
 import logo_archivo from './images/logos/archivo.png'
 import logo_config from './images/logos/config.png'
 import logo_info from './images/logos/info.png'
@@ -10,11 +11,12 @@ import Config from './pages/Config';
 import Info from './pages/Info';
 import Wifi from './pages/Wifi';
 import InfoGen from './pages/InfoGen';
-import Programas from './pages/Programas';
 import AgregarProg from './pages/AgregarProg';
+import Main from './pages/Main';
 
 function App() {
-    const ip = "http://192.168.100.251:3000/";
+    const ip = "http://192.168.100.247:3000/";
+    const socket = socketIOClient(`192.168.100.247:3000`, {transports: ['websocket']});
     return (
         <Router>
             <Link to="/archivo"><img id="archivo_1" src={logo_archivo} alt={logo_archivo} /></Link>
@@ -40,8 +42,8 @@ function App() {
                 <Route path="/wifi" >
                     <Wifi ip={ip} />
                 </Route>
-                <Route path="/programas">
-                    <Programas ip={ip} />
+                <Route path="/main">
+                    <Main ip={ip} socket={socket}/>
                 </Route>
                 <Route path="/agregar_pro">
                     <AgregarProg ip={ip} />
