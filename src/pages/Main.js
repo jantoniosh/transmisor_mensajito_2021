@@ -5,79 +5,88 @@ import '../css/Main.css'
 
 const Main = ({ ip, socket }) => {
 
+    const [nombre, setNombre] = useState("");
+    const [stream, setStream] = useState(false);
+    const [record, setRecord] = useState(false);
+    const [parte, setParte] = useState("A");
+    const [escuchas, setEscuchas] = useState(0);
 
-    const [status, setStatus] = useState({
-        nombre: "",
-        stream: false,
-        record: false,
-        parte: "A"
+    useEffect(() => {
+        const send_socket = async () => {
+            try {
+                socket.emit('stream', stream);
+            }
+            catch {
+                console.log("error");
+            }
+        }
+        send_socket();
+    }, [socket, stream]);
+
+    useEffect(() => {
+        const send_socket = () => {
+            try {
+                socket.emit('record', `${record}@${nombre}`);
+            }
+            catch {
+                console.log("error");
+            }
+        }
+        send_socket();
+    }, [socket, record, nombre]);
+
+
+    socket.on("escuchas", (escuchas) => {
+        console.log(escuchas);
+        setEscuchas(escuchas);
     });
 
-    useEffect(() => {
-        const send_socket = async () => {
-            try {
-                socket.emit('stream', status.stream);
-            }
-            catch {
-                console.log("error");
-            }
-        }
-        send_socket();
-    }, [socket, status.stream]);
-
-    useEffect(() => {
-        const send_socket = async () => {
-            try {
-                socket.emit('record', status.record);
-            }
-            catch {
-                console.log("error");
-            }
-        }
-        send_socket();
-    }, [socket, status.record]);
-
     const onChooseProgram = (val) => {
-        setStatus({ ...status, "nombre": val, parte: "B" });
+        setNombre(val);
+        setParte("B");
     }
 
     const returnProgram = (val) => {
-        setStatus({ ...status, "nombre": val, parte: "A" });
+        setNombre(val);
+        setParte("A");
     }
 
     const onRecord = (val) => {
-        setStatus({ ...status, "record": !status.record }, (e) => {
-        });
+        setRecord(!record);
     }
 
     const onStream = (val) => {
-        setStatus({ ...status, "stream": !status.stream });
+        setStream(!stream);
     }
 
 
     return (
         <>
-            {status.parte === "A" &&
+            {parte === "A" &&
                 <Programas ip={ip} parentCallback={onChooseProgram} />
             }
-            {status.parte === "B" &&
+            {parte === "B" &&
                 <>
-                    <Transmision nombre={status.nombre} ip={ip} />
+                    <Transmision nombre={nombre} ip={ip} />
                     <div id="cambiar" onClick={returnProgram}>Cambiar Nombre de Programa</div>
                     <div id="grabar_1" onClick={onRecord} className={
-                        `btn-circle ${status.record ? `btn-red` : `btn-dark`}`
+                        `btn-circle ${record ? `btn-red` : `btn-dark`}`
                     }>{
-                            status.record ? `grabando` : `grabar`
+                            record ? `grabando` : `grabar`
                         }</div>
                 </>
             }
-            <div id="contador_1" className="contador">4</div>
-            <div id="contador_2" className="contador">escuchas</div>
-            <div id="transmitir_1" onClick={onStream} className={
-                `btn-circle ${status.stream ? `btn-red` : `btn-dark`}`
-            }>{
-                    status.stream ? `al aire` : `transmitir`
-                }</div>
+            {stream ?
+                <>
+                    <div id="contador_1" className="contador">{escuchas}</div>
+                    <div id="contador_2" className="contador">escuchas</div>
+                    <div id="transmitir_1" onClick={onStream} className='btn-circle btn-red'>al aire</div>
+                </>
+                :
+                <>
+                    <div id="transmitir_1" onClick={onStream} className='btn-circle btn-dark'>transmitir</div>
+                </>
+            }
         </>
     )
 }
