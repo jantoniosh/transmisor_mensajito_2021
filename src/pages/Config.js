@@ -95,10 +95,6 @@ const Config = ({ ip }) => {
         setDatos({ ...Datos, "web": e.target.value });
     }
 
-    const onChangeTags = (e) => {
-        setDatos({ ...Datos, "tags": e.target.value });
-    }
-
     const uploadData = (e) => {
         console.log("subiendo datos");
         const data_send = async () => {
