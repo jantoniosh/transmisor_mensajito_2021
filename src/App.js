@@ -15,8 +15,8 @@ import AgregarProg from './pages/AgregarProg';
 import Main from './pages/Main';
 
 function App() {
-    const ip = "http://192.168.100.247:3000/";
-    const socket = socketIOClient(`192.168.100.247:3000`, {transports: ['websocket']});
+    const ip = "http://192.168.100.248:3000/";
+    const socket = socketIOClient(ip, {transports: ['websocket']});
     return (
         <Router>
             <Link to="/archivo"><img id="archivo_1" src={logo_archivo} alt={logo_archivo} /></Link>

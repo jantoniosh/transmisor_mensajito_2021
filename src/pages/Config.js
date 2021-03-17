@@ -11,6 +11,7 @@ const Config = ({ ip }) => {
         "facebook": "mensajito",
         "instagram": "mensajito",
         "twitter": "mensajito",
+        "mixcloud": "mensajito",
         "web": "mensajito",
         "tags": "mensajito",
     });
@@ -28,6 +29,7 @@ const Config = ({ ip }) => {
                     "facebook": response.data.facebook,
                     "instagram": response.data.instagram,
                     "twitter": response.data.twitter,
+                    "mixcloud": response.data.mixcloud,
                     "web": response.data.web,
                     "tags": response.data.tags,
                 });
@@ -85,6 +87,10 @@ const Config = ({ ip }) => {
         setDatos({ ...Datos, "instagram": e.target.value });
     }
 
+    const onChangeMixcloud = (e) => {
+        setDatos({ ...Datos, "mixcloud": e.target.value });
+    }
+
     const onChangeWeb = (e) => {
         setDatos({ ...Datos, "web": e.target.value });
     }
@@ -139,10 +145,10 @@ const Config = ({ ip }) => {
             }
             {Pos === "C" &&
                 <>
-                    <label id="texto_1_conf">Página Web</label>
-                    <input type="text" className="c_1" id="web" name="web" value={Datos.web} onChange={onChangeWeb} />
-                    <label id="texto_2">Tags</label>
-                    <input type="text" className="c_2" id="tags" name="tags" value={Datos.tags} onChange={onChangeTags} />
+                    <label id="texto_1_conf">Mixcloud</label>
+                    <input type="text" className="c_1" id="mixcloud" name="mixcloud" value={Datos.mixcloud} onChange={onChangeMixcloud} />
+                    <label id="texto_2">Página Web</label>
+                    <input type="text" className="c_2" id="web" name="web" value={Datos.web} onChange={onChangeWeb} />
                     <div className="triangulo_arriba" onClick={camb_pos_arriba}></div>
                 </>
             }
