@@ -13,6 +13,7 @@ import Wifi from './pages/Wifi';
 import InfoGen from './pages/InfoGen';
 import AgregarProg from './pages/AgregarProg';
 import Main from './pages/Main';
+import Imagenes from './pages/Imagenes';
 
 function App() {
     const ip = "http://192.168.100.248:3000/";
@@ -25,7 +26,7 @@ function App() {
             <Link to="/info"><img id="info_1" src={logo_info} alt={logo_info} /></Link>
             <Switch>
                 <Route path="/" exact>
-                    <Inicio />
+                    <Inicio ip={ip}/>
                 </Route>
                 <Route path="/archivo">
                     <Archivo />
@@ -47,6 +48,9 @@ function App() {
                 </Route>
                 <Route path="/agregar_pro">
                     <AgregarProg ip={ip} />
+                </Route>
+                <Route path="/imagenes">
+                    <Imagenes ip={ip} socket={socket}/>
                 </Route>
             </Switch>
         </Router>

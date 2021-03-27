@@ -149,7 +149,7 @@ const Config = ({ ip }) => {
                 </>
             }
             <div id="modificar_1" onClick={uploadData}>Modificar</div>
-            <div id="imagen_1">Imagen</div>
+            <Link to="/imagenes"><div id="imagen_1">Imagen</div></Link>
         </>
     )
 }

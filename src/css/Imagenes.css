@@ -1,0 +1,49 @@
+a:visited {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.c_1 {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_2 {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_3 {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+    font-size: 25px;
+}
+
+.c_4 {
+    position: absolute;
+    top: 270px;
+    left: 20px;
+    font-size: 25px;
+}
+
+
+#select_archivo {
+    position: absolute;
+    top: 115px;
+    left: 20px;
+    font-size: 20px;
+    border: none;
+    width: 440px;
+}
