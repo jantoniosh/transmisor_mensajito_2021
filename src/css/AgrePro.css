@@ -16,6 +16,13 @@ a:visited {
       left: 20px;
       font-size: 40px;
   }
+
+  #texto_2 {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 40px;
+}
   
   #inicio_1 {
       position: absolute;

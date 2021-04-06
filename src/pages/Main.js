@@ -8,6 +8,8 @@ const Main = ({ ip, socket }) => {
     const [nombre, setNombre] = useState("");
     const [stream, setStream] = useState(false);
     const [record, setRecord] = useState(false);
+    const [errorAudio, setErrorAudio] = useState(false);
+    const [errorInternet, setErrorInternet] = useState(false);
     const [parte, setParte] = useState("A");
     const [escuchas, setEscuchas] = useState(0);
 
@@ -35,11 +37,35 @@ const Main = ({ ip, socket }) => {
         send_socket();
     }, [socket, record, nombre]);
 
+    useEffect(() => {
+        socket.on("escuchas", (escuchas) => {
+            console.log(escuchas);
+            setEscuchas(escuchas);
+        });
 
-    socket.on("escuchas", (escuchas) => {
-        console.log(escuchas);
-        setEscuchas(escuchas);
-    });
+        socket.on("audio_usb", (audio_usb) => {
+            if (audio_usb === -1){
+                setRecord(false);
+                setStream(false);
+                setErrorAudio(true);
+            }
+            else {
+                setErrorAudio(false);
+            }
+        });
+
+        socket.on("internet", (internet) => {
+            console.log(internet);
+            if (!internet){
+                setStream(false);
+                setErrorInternet(true);
+            }
+            else {
+                setErrorInternet(false);
+            }
+        });
+
+    }, [socket]);
 
     const onChooseProgram = (val) => {
         setNombre(val);
@@ -85,6 +111,14 @@ const Main = ({ ip, socket }) => {
                 :
                 <>
                     <div id="transmitir_1" onClick={onStream} className='btn-circle btn-dark'>transmitir</div>
+                </>
+            }
+            {errorAudio ?
+                <>
+                    <div id="contador_1" className="contador">Error Audio</div>
+                </>
+                :
+                <>
                 </>
             }
         </>

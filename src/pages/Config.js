@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const Config = ({ ip }) => {
     const [Datos, setDatos] = useState({
-        "estacion": "mensajito",
+        "nombre": "mensajito",
         "ubicacion": "mensajito",
         "descripcion": "mensajito",
         "facebook": "mensajito",
@@ -16,14 +16,12 @@ const Config = ({ ip }) => {
         "tags": "mensajito",
     });
 
-    const [load, setLoad] = useState(true);
-
     useEffect(() => {
         const get_data = async () => {
             try {
                 const response = await axios.get(`${ip}config`);
                 setDatos({
-                    "estacion": response.data.nombre,
+                    "nombre": response.data.nombre,
                     "ubicacion": response.data.ubicacion,
                     "descripcion": response.data.descripcion,
                     "facebook": response.data.facebook,
@@ -34,14 +32,13 @@ const Config = ({ ip }) => {
                     "tags": response.data.tags,
                 });
                 console.log(response.data);
-                setLoad(false);
             }
             catch {
                 console.log("error");
             }
         }
         get_data();
-    }, [load, ip]);
+    }, [ip]);
 
 
     const [Pos, setPos] = useState("A");
@@ -63,8 +60,8 @@ const Config = ({ ip }) => {
         }
     };
 
-    const onChangeEstacion = (e) => {
-        setDatos({ ...Datos, "estacion": e.target.value });
+    const onChangeNombre = (e) => {
+        setDatos({ ...Datos, "nombre": e.target.value });
     }
 
     const onChangeUbicacion = (e) => {
@@ -119,22 +116,22 @@ const Config = ({ ip }) => {
             {Pos === "A" &&
                 <>
                     <label id="texto_1_conf">Nombre de la estación</label>
-                    <input type="text" className="c_1" name="estacion" value={Datos.estacion} onChange={onChangeEstacion} />
-                    <label id="texto_2">Ubicación</label>
-                    <input type="text" className="c_2" name="ubicacion" value={Datos.ubicacion} onChange={onChangeUbicacion} />
+                    <input type="text" className="c_1" value={Datos.nombre} onChange={onChangeNombre} />
+                    <label id="texto_2_conf">Ubicación</label>
+                    <input type="text" className="c_2" value={Datos.ubicacion} onChange={onChangeUbicacion} />
                     <label id="texto_3">Descripción</label>
-                    <input type="text" className="c_3" id="descripcion" name="descripcion" value={Datos.descripcion} onChange={onChangeDescripcion} />
+                    <input type="text" className="c_3" id="descripcion" value={Datos.descripcion} onChange={onChangeDescripcion} />
                     <div className="triangulo_abajo" onClick={camb_pos_abajo}></div>
                 </>
             }
             {Pos === "B" &&
                 <>
                     <label id="texto_1_conf">Facebook</label>
-                    <input type="text" className="c_1" id="facebook" name="facebook" value={Datos.facebook} onChange={onChangeFacebook} />
-                    <label id="texto_2">Instagram</label>
-                    <input type="text" className="c_2" id="instagram" name="instagram" value={Datos.instagram} onChange={onChangeInstagram} />
+                    <input type="text" className="c_1" id="facebook" value={Datos.facebook} onChange={onChangeFacebook} />
+                    <label id="texto_2_conf">Instagram</label>
+                    <input type="text" className="c_2" id="instagram" value={Datos.instagram} onChange={onChangeInstagram} />
                     <label id="texto_3">Twitter</label>
-                    <input type="text" className="c_3" id="twitter" name="twitter" value={Datos.twitter} onChange={onChangeTwitter} />
+                    <input type="text" className="c_3" id="twitter" value={Datos.twitter} onChange={onChangeTwitter} />
                     <div className="triangulo_arriba" onClick={camb_pos_arriba}></div>
                     <div className="triangulo_abajo" onClick={camb_pos_abajo}></div>
                 </>
@@ -142,9 +139,9 @@ const Config = ({ ip }) => {
             {Pos === "C" &&
                 <>
                     <label id="texto_1_conf">Mixcloud</label>
-                    <input type="text" className="c_1" id="mixcloud" name="mixcloud" value={Datos.mixcloud} onChange={onChangeMixcloud} />
-                    <label id="texto_2">Página Web</label>
-                    <input type="text" className="c_2" id="web" name="web" value={Datos.web} onChange={onChangeWeb} />
+                    <input type="text" className="c_1" id="mixcloud" value={Datos.mixcloud} onChange={onChangeMixcloud} />
+                    <label id="texto_2_conf">Página Web</label>
+                    <input type="text" className="c_2" id="web" value={Datos.web} onChange={onChangeWeb} />
                     <div className="triangulo_arriba" onClick={camb_pos_arriba}></div>
                 </>
             }

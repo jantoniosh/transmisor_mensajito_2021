@@ -11,7 +11,6 @@ const Info = ({ ip }) => {
         "mac_wlan0": "",
         "memoria": ""
     });
-    const [load, setLoad] = useState(true);
 
     useEffect(() => {
         const get_data = async () => {
@@ -25,14 +24,13 @@ const Info = ({ ip }) => {
                     "memoria": response.data.memoria
                 });
                 console.log(response.data);
-                setLoad(false);
             }
             catch {
                 console.log("error");
             }
         }
         get_data();
-    }, [load, ip]);
+    }, [ip]);
 
     return (
         <>

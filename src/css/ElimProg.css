@@ -1,0 +1,36 @@
+#select_programa {
+    position: absolute;
+    top: 115px;
+    left: 20px;
+    font-size: 20px;
+    border: none;
+    width: 440px;
+}
+
+#texto_1 {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    font-size: 40px;
+}
+
+#texto_2 {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 40px;
+}
+
+#btn_eliminar {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+    font-size: 30px;
+}
+
+#nombre_1 {
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    font-size: 30px;
+}

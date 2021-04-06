@@ -33,6 +33,15 @@ a:active {
     width: 220px;
 }
 
+#select_1_ext {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    font-size: 20px;
+    border: none;
+    width: 220px;
+}
+
 #agregar_1 {
     position: absolute;
     top: 90px;

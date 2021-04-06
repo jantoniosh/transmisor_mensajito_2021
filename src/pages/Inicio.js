@@ -6,7 +6,6 @@ import axios from 'axios';
 const Inicio = ({ ip }) => {
 
     const [img, setImg] = useState(" ");
-    const [load, setLoad] = useState(true);
 
     useEffect(() => {
         const get_data = async () => {
@@ -14,16 +13,14 @@ const Inicio = ({ ip }) => {
                 let image = await axios.get(`${ip}get_img`, { responseType: 'arraybuffer' });
                 let raw = Buffer.from(image.data).toString('base64');
                 let image_base64 = "data:" + image.headers["content-type"] + ";base64," + raw;
-                console.log(image_base64);
                 setImg(image_base64);
-                setLoad(true);
             }
             catch {
                 console.log("error");
             }
         }
         get_data();
-    }, [load, ip, img]);
+    }, [ip, img]);
 
     return (
         <>

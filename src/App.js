@@ -14,10 +14,11 @@ import InfoGen from './pages/InfoGen';
 import AgregarProg from './pages/AgregarProg';
 import Main from './pages/Main';
 import Imagenes from './pages/Imagenes';
+import ElimProg from './pages/ElimProg';
 
 function App() {
     const ip = "http://192.168.100.248:3000/";
-    const socket = socketIOClient(ip, {transports: ['websocket']});
+    const socket = socketIOClient(ip, { transports: ['websocket'] });
     return (
         <Router>
             <Link to="/archivo"><img id="archivo_1" src={logo_archivo} alt={logo_archivo} /></Link>
@@ -26,10 +27,10 @@ function App() {
             <Link to="/info"><img id="info_1" src={logo_info} alt={logo_info} /></Link>
             <Switch>
                 <Route path="/" exact>
-                    <Inicio ip={ip}/>
+                    <Inicio ip={ip} />
                 </Route>
                 <Route path="/archivo">
-                    <Archivo />
+                    <Archivo ip={ip} socket={socket} />
                 </Route>
                 <Route path="/config">
                     <Config ip={ip} />
@@ -44,13 +45,16 @@ function App() {
                     <Wifi ip={ip} />
                 </Route>
                 <Route path="/main">
-                    <Main ip={ip} socket={socket}/>
+                    <Main ip={ip} socket={socket} />
                 </Route>
                 <Route path="/agregar_pro">
                     <AgregarProg ip={ip} />
                 </Route>
+                <Route path="/eliminar_pro">
+                    <ElimProg ip={ip} />
+                </Route>
                 <Route path="/imagenes">
-                    <Imagenes ip={ip} socket={socket}/>
+                    <Imagenes ip={ip} socket={socket} />
                 </Route>
             </Switch>
         </Router>

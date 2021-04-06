@@ -12,7 +12,7 @@ a:active {
 
 #texto_1_conf {
     position: absolute;
-    top: 50px;
+    top: 54px;
     left: 20px;
     font-size: 25px;
 }
@@ -23,9 +23,9 @@ a:active {
     left: 20px;
 }
 
-#texto_2 {
+#texto_2_conf {
     position: absolute;
-    top: 120px;
+    top: 124px;
     left: 20px;
     font-size: 25px;
 }
@@ -38,7 +38,7 @@ a:active {
 
 #texto_3 {
     position: absolute;
-    top: 190px;
+    top: 194px;
     left: 20px;
     font-size: 25px;
 }
