@@ -115,7 +115,15 @@ const Main = ({ ip, socket }) => {
             }
             {errorAudio ?
                 <>
-                    <div id="contador_1" className="contador">Error Audio</div>
+                    <div id="error_audio">Error Audio</div>
+                </>
+                :
+                <>
+                </>
+            }
+            {errorInternet ?
+                <>
+                    <div id="error_internet">Error Internet</div>
                 </>
                 :
                 <>

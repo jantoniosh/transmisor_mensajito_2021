@@ -10,9 +10,11 @@ const Archivo = ({ ip, socket }) => {
         nombre: "",
         tipo: Accion
     });
-
-    const [envio, setEnvio] = useState(false);
-
+    const [sAudio, setSAudio] = useState({
+        nombre: "",
+        tipo: Accion
+    });
+    const [errorUSB, setErrorUSB] = useState(false);
     const [archivos, setArchivos] = useState([]);
 
     useEffect(() => {
@@ -31,19 +33,30 @@ const Archivo = ({ ip, socket }) => {
     }, [Accion, Pos, ip]);
 
     useEffect(() => {
-        const send_socket = async () => {
-            if (envio) {
-                try {
-                    await axios.post(`${ip}audio`, Audio)
-                    setEnvio(false);
-                }
-                catch {
-                    console.log("error");
+        const sendAudioAction = async () => {
+            try {
+                if (sAudio.nombre !== '') {
+                    let response = await axios.post(`${ip}audio_file`, sAudio);
+                    if (!response.data) {
+                        setErrorUSB(true);
+                    }
+                    else {
+                        setErrorUSB(false);
+                    }
+                    setSAudio({
+                        nombre: '',
+                        tipo: ''
+                    });
+                    response = await axios.get(`${ip}usb_files_audio`);
+                    setArchivos(response.data);
                 }
             }
+            catch {
+                console.log("error");
+            }
         }
-        send_socket();
-    }, [ip, envio, Audio]);
+        sendAudioAction();
+    }, [ip, sAudio]);
 
     const selectDescargar = () => {
         setPos("B");
@@ -68,7 +81,7 @@ const Archivo = ({ ip, socket }) => {
     }
 
     const onClickAccion = () => {
-        setEnvio(true);
+        setSAudio(Audio);
     }
 
     return (
@@ -88,6 +101,7 @@ const Archivo = ({ ip, socket }) => {
                             {archivos.map((archivo) => <option key={archivo} value={archivo}>{archivo}</option>)}
                         </select>
                     </div>
+                    <div className="c_3">{errorUSB? 'Sin USB Conectada' : ''}</div>
                     <div className="c_4" onClick={selectVolver}>Volver</div>
                     <div className="c_5" onClick={onClickAccion}>{Accion}</div>
                 </>

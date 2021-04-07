@@ -30,6 +30,14 @@ a:active {
     font-size: 25px;
 }
 
+.c_3 {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+    font-size: 25px;
+    color: red;
+}
+
 .c_4 {
     position: absolute;
     top: 270px;
@@ -43,3 +51,8 @@ a:active {
     left: 300px;
     font-size: 25px;
 }
+
+select option:checked {
+    box-shadow: 0 0 10px 100px red inset;
+}
+

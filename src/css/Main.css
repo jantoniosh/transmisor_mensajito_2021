@@ -137,6 +137,22 @@ select:focus {
     color: white;
 }
 
+#error_audio {
+    position: absolute;
+	top: 200px;
+	left: 260px;
+	font-size: 24px;
+    color: red;
+}
+
+#error_internet {
+    position: absolute;
+	top: 240px;
+	left: 280px;
+	font-size: 30px;
+    color: red;
+}
+
 .btn-dark {
     background-color: black;
 }
