@@ -101,7 +101,8 @@ const Archivo = ({ ip, socket }) => {
                             {archivos.map((archivo) => <option key={archivo} value={archivo}>{archivo}</option>)}
                         </select>
                     </div>
-                    <div className="c_3">{errorUSB? 'Sin USB Conectada' : ''}</div>
+                    <div className="c_3_arhivo">{errorUSB? 'Sin USB Conectada' : ''
+                    }</div>
                     <div className="c_4" onClick={selectVolver}>Volver</div>
                     <div className="c_5" onClick={onClickAccion}>{Accion}</div>
                 </>

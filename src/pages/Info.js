@@ -9,6 +9,7 @@ const Info = ({ ip }) => {
         "mac_eth0": "",
         "ip_wlan0": "",
         "mac_wlan0": "",
+        "link": "",
         "memoria": ""
     });
 
@@ -21,6 +22,7 @@ const Info = ({ ip }) => {
                     "mac_eth0": response.data.mac_eth0,
                     "ip_wlan0": response.data.ip_wlan0,
                     "mac_wlan0": response.data.mac_wlan0,
+                    "link": response.data.link,
                     "memoria": response.data.memoria
                 });
                 console.log(response.data);
@@ -39,6 +41,8 @@ const Info = ({ ip }) => {
             <div id="mac_eth0">MAC Eth: {Info.mac_eth0}</div>
             <div id="ip_wlan0">IP WiFi: {Info.ip_wlan0}</div>
             <div id="mac_wlan0">MAC WiFi: {Info.mac_wlan0}</div>
+            <div id="link_titulo">Link de Transmisión:</div>
+            <div id="link">{Info.link}</div>
             <div id="memoria">Memoria: {Info.memoria}</div>
             <div id="info_gen"><Link to="/info_gen">Ver más sobre mensajito.mx</Link></div>
         </>

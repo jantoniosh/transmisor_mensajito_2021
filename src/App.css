@@ -77,3 +77,10 @@ a:active {
     left: 20px;
     font-size: 20px;
 }
+
+.teclado {
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    width: 40px;
+}

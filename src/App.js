@@ -17,7 +17,7 @@ import Imagenes from './pages/Imagenes';
 import ElimProg from './pages/ElimProg';
 
 function App() {
-    const ip = "http://192.168.100.248:3000/";
+    const ip = "http://localhost:3000/";
     const socket = socketIOClient(ip, { transports: ['websocket'] });
     return (
         <Router>

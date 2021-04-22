@@ -25,7 +25,7 @@ const Inicio = ({ ip }) => {
     return (
         <>
             {/* <img src="http://192.168.100.248/img/fondo.jpg" alt="fondo" /> */}
-            <img src={img} alt="fondo" />
+            <img className="image" src={img} alt="fondo" />
             <Link to="/main"><div id="btn_inicio" className="btn_circle btn_black">inicio</div></Link>
         </>
     )
