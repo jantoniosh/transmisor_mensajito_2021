@@ -17,28 +17,20 @@ a:active {
     font-size: 25px;
 }
 
-.c_1 {
+
+#select_wifi {
     position: absolute;
     top: 80px;
     left: 20px;
+    font-size: 20px;
+    border: none;
+    width: 440px;
 }
+
 
 #texto_2_wifi {
     position: absolute;
-    top: 120px;
-    left: 20px;
-    font-size: 25px;
-}
-
-.c_2 {
-    position: absolute;
-    top: 150px;
-    left: 20px;
-}
-
-#modificar_1 {
-    position: absolute;
-    top: 270px;
+    top: 190px;
     left: 20px;
     font-size: 25px;
 }
@@ -58,9 +50,24 @@ input[type=text]:focus {
     border: 3px solid #555;
 }
 
+#contrasena {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+}
+
+
 #conectar_1 {
     position: absolute;
-    top: 190px;
+    top: 280px;
     left: 20px;
+    font-size: 25px;
+}
+
+#conectado {
+    color: red;
+    position: absolute;
+    top: 280px;
+    left: 320px;
     font-size: 25px;
 }

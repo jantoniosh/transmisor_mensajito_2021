@@ -75,7 +75,7 @@ const Imagenes = ({ ip, socket }) => {
                 <>
                     <div className="c_1" onClick={changeTransmisor}>Imagen Transmisor (480x320)</div>
                     <div className="c_2" onClick={changePlataforma}>Imagen Plataforma (600x600)</div>
-                    <div className="c_3" onClick={changeHeader}>Imagen Header (480x320)</div>
+                    <div className="c_3" onClick={changeHeader}>Imagen Header (3369x1196)</div>
                 </>
             }
             {Pos === "B" &&
