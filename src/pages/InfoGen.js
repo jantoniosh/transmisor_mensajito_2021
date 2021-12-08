@@ -1,3 +1,4 @@
+/* Página InfoGen de de la GUI de control para transmisor mensajito.mx */
 import React from 'react'
 import '../css/InfoGen.css'
 import { Link } from 'react-router-dom'

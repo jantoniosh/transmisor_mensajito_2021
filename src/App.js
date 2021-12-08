@@ -1,3 +1,4 @@
+/* App principal de de la GUI de control para transmisor mensajito.mx */
 import React from 'react';
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import socketIOClient from "socket.io-client";

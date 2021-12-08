@@ -1,3 +1,4 @@
+/* Página Archivo de de la GUI de control para transmisor mensajito.mx */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'

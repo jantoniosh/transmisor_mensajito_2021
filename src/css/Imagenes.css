@@ -1,3 +1,4 @@
+/* Hoja de Estilo Imagenes de de la GUI de control para transmisor mensajito.mx */
 a:visited {
     color: black;
 }
@@ -31,13 +32,27 @@ a:active {
     font-size: 25px;
 }
 
-.c_4 {
+#seleccionar {
     position: absolute;
     top: 270px;
     left: 20px;
     font-size: 25px;
 }
 
+#status_carga {
+    color: red;
+    position: absolute;
+    top: 270px;
+    left: 20px;
+    font-size: 25px;
+}
+
+#volver {
+    position: absolute;
+    top: 270px;
+    left: 320px;
+    font-size: 25px;
+}
 
 #select_archivo {
     position: absolute;

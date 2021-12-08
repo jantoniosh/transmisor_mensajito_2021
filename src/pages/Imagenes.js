@@ -1,3 +1,4 @@
+/* Página Imagenes de de la GUI de control para transmisor mensajito.mx */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -12,6 +13,7 @@ const Imagenes = ({ ip, socket }) => {
         nombre: "",
         tipo: tipoImagen
     });
+    const [select, setSelect] = useState(false);
 
     useEffect(() => {
         const get_data = async () => {
@@ -24,20 +26,27 @@ const Imagenes = ({ ip, socket }) => {
                 console.log("error");
             }
         }
-        get_data();
-    }, [load, ip]);
+        if (Pos === "B") {
+            get_data();
+        }
+    }, [ip, Pos]);
 
     useEffect(() => {
-        const send_socket = async () => {
+        const post_data = async () => {
             try {
-                socket.emit('imagen', Imagen);
+                console.log(Imagen);
+                const response = await axios.post(`${ip}snd_img`, Imagen);
+                console.log(response.data);
+                setSelect(false);
             }
             catch {
                 console.log("error");
             }
         }
-        send_socket();
-    }, [socket, Imagen]);
+        if (select) {
+            post_data();
+        }
+    }, [Imagen, select, ip]);
 
     const changeTransmisor = () => {
         setPos("B");
@@ -57,15 +66,20 @@ const Imagenes = ({ ip, socket }) => {
         setLoad(true);
     }
 
-    const changeSeleccion = () => {
+    const onClickVolver = () => {
         setPos("A");
         setImagen(" ");
     }
+
     const onChooseArchivo = (e) => {
         setImagen({
             nombre: e.target.value,
             tipo: tipoImagen
         });
+    }
+
+    const onClickSeleccion = (e) => {
+        setSelect(true);
     }
 
     return (
@@ -86,7 +100,17 @@ const Imagenes = ({ ip, socket }) => {
                             {archivos.map((archivo) => <option key={archivo} value={archivo}>{archivo}</option>)}
                         </select>
                     </div>
-                    <div className="c_4" onClick={changeSeleccion}>Volver</div>
+                    {select === false &&
+                        <>
+                            <div id="seleccionar" onClick={onClickSeleccion}>Seleccionar</div>
+                        </>
+                    }
+                    {select === true &&
+                        <>
+                            <div id="status_carga">Cargando</div>
+                        </>
+                    }
+                    <div id="volver" onClick={onClickVolver}>Volver</div>
                 </>
             }
         </>

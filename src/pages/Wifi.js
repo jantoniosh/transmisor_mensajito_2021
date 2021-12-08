@@ -1,3 +1,4 @@
+/* Página WiFi de de la GUI de control para transmisor mensajito.mx */
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/WiFi.css'

@@ -1,3 +1,4 @@
+/* Página Config de de la GUI de control para transmisor mensajito.mx */
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/Config.css'
 import { Link } from 'react-router-dom'
